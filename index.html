@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmový klub Panská</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll("a[href^='#']");
+    
+            for (const link of links) {
+                link.addEventListener("click", smoothScroll);
+            }
+    
+            function smoothScroll(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute("href").substring(1);
+                const targetElement = document.getElementById(targetId);
+    
+                if (targetElement) {
+                    const offsetTop = targetElement.getBoundingClientRect().top;
+                    const scrollY = window.scrollY;
+                    const targetY = scrollY + offsetTop;
+    
+                    window.scrollTo({
+                        top: targetY,
+                        behavior: "smooth"
+                    });
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="#banner"><img src="https://www.panska.cz/wp-content/uploads/2021/06/Artwork-37-th.png"></a>
+                <ul>
+                    <li><a href="#o-klubu">O klubu</a></li>
+                    <li><a href="#filmovy-program">Program</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="banner">
+        <div class="banner">
+            <img>
+            <h1>Filmový klub Panská</h1>
+        </div>
+    </section>
+
+    <section id="o-klubu">
+        <div class="container">
+            <h2>O klubu</h2>
+            <p>Filmový klub Panská při naší střední škole promítá již od února 2016, kdy šlo o ojedinělé filmové projekce. Od té doby prošel značným vývojem a v současnosti promítá pravidelně.
+
+                <br>Čtyřicetimístný kinosál prošel v roce 2020 rozsáhlou rekonstrukcí, během které došlo k instalaci klimatizace
+                a prostorového zvukového systému 5.1. Díky iniciativě studentů bývá také standardně před samotnou projekcí podáváno malé občerstvení.
+                
+                <br>Filmový klub Panská je členem Asociace českých filmových klubů.</p>
+        </div>
+    </section>
+    
+    <section id="filmovy-program">
+        <div class="container">
+            <h2>Filmový program</h2>
+            <div class="film">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS8oChbCF-XjScC0TRSHMw_YBAg9f0o83azujRidVzTNizHSY1aXxVOXsfvx3oNtmK-zhmgJcOfWq09OIOwPMAUQVwk7rVePvxKHqe2Pt0&usqp=CAc" alt="Film 1">
+                <h3>Pulp Fiction</h3>
+                <p>Krátký popis filmu a jeho režiséra.</p>
+                <a href="film1.html">Zobrazit více</a>
+            </div>
+            <div class="film">
+                <img src="film2.jpg" alt="Film 2">
+                <h3>Film 2</h3>
+                <p>Krátký popis filmu a jeho režiséra.</p>
+                <a href="film2.html">Zobrazit více</a>
+            </div>
+            <!-- Pokračujte s dalšími filmy -->
+        </div>
+    </section>
+    
+    <section id="kontakt">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Máte otázky nebo nápady? Kontaktujte nás na <a href="mailto:info@filmovyklub.cz">info@filmovyklub.cz</a>.</p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Filmový klub</p>
+        </div>
+    </footer>
+</body>
+</html>
