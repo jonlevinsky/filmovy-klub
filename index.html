@@ -19,7 +19,7 @@
                 const targetElement = document.getElementById(targetId);
     
                 if (targetElement) {
-                    const offsetTop = targetElement.getBoundingClientRect().top;
+                    const offsetTop = targetElement.getBoundingClientRect().top-60;
                     const scrollY = window.scrollY;
                     const targetY = scrollY + offsetTop;
     
@@ -67,19 +67,36 @@
     <section id="filmovy-program">
         <div class="container">
             <h2>Filmový program</h2>
-            <div class="film">
-                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS8oChbCF-XjScC0TRSHMw_YBAg9f0o83azujRidVzTNizHSY1aXxVOXsfvx3oNtmK-zhmgJcOfWq09OIOwPMAUQVwk7rVePvxKHqe2Pt0&usqp=CAc" alt="Film 1">
-                <h3>Pulp Fiction</h3>
-                <p>Krátký popis filmu a jeho režiséra.</p>
-                <a href="film1.html">Zobrazit více</a>
+            <div class="program">
+ <!-- Film 1 -->
+                <div class="film">
+                    <img src="//image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/336/158336635_61bc7c.jpg" alt="Film 1">
+                    <div class="text">
+                        <a href="film1.html">PULP FICTION</a>
+                        <h4>Krimi / Drama</h4>
+                        <h4>USA, 1994, 154 min</h4>
+                        <p>     <b>Režie:</b> Quentin Tarantino
+                            <br><b>Scénář:</b> Quentin Tarantino, Roger Avary
+                            <br><b>Hrají:</b> John Travolta, Samuel L. Jackson
+                            <br><b>Ocenění:</b> Nejlepší původní scénář 1995
+                        </p>
+                    </div>
+                </div>
+<!-- Film 2 -->
+                <div class="film">
+                    <img src="//image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/336/158336635_61bc7c.jpg" alt="Film 1">
+                    <div class="text">
+                        <a href="film1.html">PULP FICTION</a>
+                        <h4>Krimi / Drama</h4>
+                        <h4>USA, 1994, 154 min</h4>
+                        <p>     <b>Režie:</b> Quentin Tarantino
+                            <br><b>Scénář:</b> Quentin Tarantino, Roger Avary
+                            <br><b>Hrají:</b> John Travolta, Samuel L. Jackson
+                            <br><b>Ocenění:</b> Nejlepší původní scénář 1995
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="film">
-                <img src="film2.jpg" alt="Film 2">
-                <h3>Film 2</h3>
-                <p>Krátký popis filmu a jeho režiséra.</p>
-                <a href="film2.html">Zobrazit více</a>
-            </div>
-            <!-- Pokračujte s dalšími filmy -->
         </div>
     </section>
     
