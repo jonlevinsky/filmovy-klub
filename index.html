@@ -31,6 +31,60 @@
             }
         });
     </script>
+    <script>
+        function zobrazInformaceOFilmu(nazevFilmu) {
+                // Získání informací z OMDB API
+                fetch(`http://www.omdbapi.com/?t=${nazevFilmu}&apikey=c27a2f39`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Získané údaje z API
+                        const title = data.Title
+                        const director = data.Director;
+                        const writer = data.Writer;
+                        const cast = data.Actors;
+                        const rating = data.imdbRating;
+                        const lenght = data.Runtime;
+                        const published = data.Year;
+                        const genre = data.Genre;
+                        const genres = genre.split(", ")
+                        const country = data.Country;
+                        const posterurl = data.Poster;
+                        const procenta = rating*10+'%';
+
+                        // Zobrazíme informace na stránce
+                        const informaceElement = document.getElementById("informace-o-filmu");
+                        informaceElement.innerHTML = `
+                        <div class="film">
+                            <img src="${posterurl}" alt="${title}-Poster">
+                            <div class="text">
+                                <a href="film1.html">${title} ${procenta}</a> 
+                                <h4>${genres.join(" / ")}</h4>
+                                <h4>${country}, ${published}, ${lenght}</h4>
+                                <p>     <b>Režie:</b> ${director}
+                                    <br><b>Scénář:</b> ${writer}
+                                    <br><b>Hrají:</b> ${cast}
+                                </p>
+                            </div>
+                        </div>
+                        `;
+                    })
+                    .catch(error => {
+                        console.error("Chyba při načítání informací o filmu: " + error);
+                    });
+            }
+    </script>
+    <script>
+         function aktualizujFilm() {
+            const noveJmenoFilmu = document.getElementById("nove-jmeno-filmu").value;
+            zobrazInformaceOFilmu(noveJmenoFilmu);
+        }
+
+        function handleEnterKey(event) {
+        if (event.key === "Enter") {
+            aktualizujFilm();
+        }
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -39,7 +93,7 @@
                 <a href="#banner"><img src="https://www.panska.cz/wp-content/uploads/2021/06/Artwork-37-th.png"></a>
                 <ul>
                     <li><a href="#o-klubu">O klubu</a></li>
-                    <li><a href="#filmovy-program">Program</a></li>
+                    <li><a href="#film-database">Databáze</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
             </div>
@@ -64,38 +118,14 @@
         </div>
     </section>
     
-    <section id="filmovy-program">
+    <section id="film-database">
         <div class="container">
-            <h2>Filmový program</h2>
-            <div class="program">
- <!-- Film 1 -->
-                <div class="film">
-                    <img src="//image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/336/158336635_61bc7c.jpg" alt="Film 1">
-                    <div class="text">
-                        <a href="film1.html">PULP FICTION</a>
-                        <h4>Krimi / Drama</h4>
-                        <h4>USA, 1994, 154 min</h4>
-                        <p>     <b>Režie:</b> Quentin Tarantino
-                            <br><b>Scénář:</b> Quentin Tarantino, Roger Avary
-                            <br><b>Hrají:</b> John Travolta, Samuel L. Jackson
-                            <br><b>Ocenění:</b> Nejlepší původní scénář 1995
-                        </p>
-                    </div>
-                </div>
-<!-- Film 2 -->
-                <div class="film">
-                    <img src="//image.pmgstatic.com/cache/resized/w140/files/images/film/posters/158/336/158336635_61bc7c.jpg" alt="Film 1">
-                    <div class="text">
-                        <a href="film1.html">PULP FICTION</a>
-                        <h4>Krimi / Drama</h4>
-                        <h4>USA, 1994, 154 min</h4>
-                        <p>     <b>Režie:</b> Quentin Tarantino
-                            <br><b>Scénář:</b> Quentin Tarantino, Roger Avary
-                            <br><b>Hrají:</b> John Travolta, Samuel L. Jackson
-                            <br><b>Ocenění:</b> Nejlepší původní scénář 1995
-                        </p>
-                    </div>
-                </div>
+            <h2>Filmová databáze</h2>
+            <div class="database">
+                <input type="text" id="nove-jmeno-filmu" placeholder="Název filmu" onkeydown="handleEnterKey(event)" onkeyup="findMovies()" onclick = "findMovies()">
+                <button id="aktualizovat-film-button" onclick="aktualizujFilm()">Vyhledat film</button>
+                <div class="search-list" id="search-list"></div>
+                <section id="informace-o-filmu"></section>
             </div>
         </div>
     </section>

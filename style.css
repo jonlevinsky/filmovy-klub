@@ -81,25 +81,26 @@ p {
     text-align: justify;
 }
 
-.program{
+.database{
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: flex;
-    flex-flow: row;
+    display: flexbox;
+    justify-content: center;
 }
 
 .film {
+    margin-top: 20px;
     background-color: #fff;
     border: 1px solid #e0e0e0;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
     width: 500px;
-    display: inline-flex;
+    display: flex;
     flex-flow: row;
-    margin-left: 25px;
-    margin-right: 25px;
+    position: relative;
+    justify-content: left;
 }
 
 .film .text {
@@ -168,4 +169,38 @@ footer {
     font-size: 90px;
     z-index: 1; 
     position: relative; 
+}
+
+/* Vyhledávací lišta a tlačítko */
+#nove-jmeno-filmu {
+    font-family: 'Chivo';
+    font-size: 18px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    width: 300px;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#aktualizovat-film-button {
+    font-family: 'Chivo';
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: #D80032;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Styl pro vstupní pole a tlačítko při najetí myši */
+#nove-jmeno-filmu:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+#aktualizovat-film-button:hover {
+    background-color: #333;
 }
